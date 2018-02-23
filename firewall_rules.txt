@@ -1,0 +1,61 @@
+sudo iptables -A FORWARD -o eth1 -i eth0 -s 10.42.0.0/24 -m conntrack --ctstate NEW -j ACCEPT
+  899  sudo iptables -A FORWARD -m contrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+  900  sudo iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+  901  sudo iptables -t nat -F POSTROUTING
+  902  sudo iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+  903  sudo iptables-save | sudo tee /etc/iptables.sav
+  904  iptables-restore < /etc/iptables.sav
+  905  iptables-restore</etc/iptables.sav
+  906  iptables-restore
+  907  iptables-restore --help
+  908  iptables-restore 
+  909  sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
+  910  net.ipv4.conf.default.forwarding=1
+  911  net.ipv4.conf.all.forwarding=1
+  912  sudo gedit /etc/sysctl.conf
+  913  sudo net.ipv4.ip_forward=1
+  914  sudo gedit /etc/sysctl.conf
+  915  nmcli device show <interfacename> | grep IP4.DNS
+  916  nmcli device show eth1 | grep IP4.DNS
+  917  nmcli device show eth1 
+  918  nm-tool | grep DNs
+  919  nm-tool | grep DN
+  920* nm-tool 
+  921  sudo iptables -A FORWARD -p tcp -j DROP 
+  922  sudo iptables -S
+  923  iptables -L FORWARD -L
+  924  iptables -L FORWARD 
+  925  sudo iptables -L FORWARD 
+  926  sudo iptables -L FORWARD --list
+  927  sudo iptables -L FORWARD --line-numbers
+  928  sudo iptables -h
+  929  sudo iptables -D FORWARD 3
+  930  sudo iptables -L FORWARD --line-numbers
+  931  sudo iptables -I  FORWARD 1  -p tcp -j DROP 
+  932  sudo iptables -L FORWARD --line-numbers
+  933  sudo iptables -D FORWARD 1
+  934  ping 10.10.1.223
+  935  sudo iptables -I  FORWARD 1  -p tcp -j DROP 
+  936  sudo iptables -D FORWARD 1
+  937  sudo iptables -I  FORWARD 1  -p tcp -j DROP 
+  938  sudo iptables -D FORWARD 1
+  939  sudo iptables -I  FORWARD 1  -p tcp -j INPUT
+  940  sudo iptables -I  FORWARD 1  -p tcp -j OUTPUt
+  941  sudo iptables -I  FORWARD 1  -p tcp -j OUTPUT
+  942  iptables -h
+  943  sudo iptables -I  FORWARD 1  -p tcp -g OUTPUT
+  944  iptables -N TCp
+  945  sudo iptables -N TCP
+  946  iptables -S
+  947  sudo iptables -S
+  948  sudo iptables -I  FORWARD 1  -p tcp -j TCP
+  949  sudo iptables -I  FORWARD 2  -p tcp -j DROP
+  950  sudo iptables -D FORWARD 1
+  951  sudo iptables -S
+  952  sudo iptables -S --line-numbers
+  953  sudo iptables -L FORWARD --line-numbers
+  954  sudo iptables -D FORWARD 1
+  955  sudo iptables -I  FORWARD 1  -p tcp -j DROP
+  956  sudo iptables -S
+  957  history
+

@@ -1,0 +1,53 @@
+#server
+ip:192.168.2.2/20
+gw:192.168.2.1/20
+
+#server side accelerator node
+PRIVATE
+	ip:192.168.2.1/20
+	gw:no
+
+LAN
+	ip:10.8.145.219/20
+	DHCP
+
+firewall rule:
+	sudo iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+	sudo iptables -I FORWARD -p tcp -j DROP
+
+Route:
+	sudo route add -net 192.168.1.0 netmask 255.255.255.0 gw 10.8.145.240 dev eth1
+
+
+#client
+ip:192.168.1.2/20
+gw:192.168.1.1/20
+
+#client side accelerator node
+PRIVATE
+	ip:192.168.1.1/20
+	gw:no
+
+LAN
+	ip:10.8.145.240/20
+	DHCP
+
+Route:
+	sudo route add -net 192.168.2.0 netmask 255.255.255.0 gw 10.8.145.219 dev eth1
+
+Firewall Rule:
+	sudo iptables -A FORWARD -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT
+	sudo iptables -I FORWARD -p tcp -j DROP
+
+Check whether PF-Ring is running or not
+	lsmod | grep pf
+	result
+		null:PF-Ring is not running
+
+
+if the code gives an error  eth0 is not configured then ,
+cd /home/entc1/PF_RING/drivers/intel/e1000e/e1000e-3.2.7.1-zc/src
+./load_driver.sh
+
+
+
